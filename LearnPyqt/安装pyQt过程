@@ -1,0 +1,17 @@
+安装pyQt过程
+
+1. 安装python3---> brew install python3
+
+安装pyqt库 （https://www.riverbankcomputing.com/software/pyqt/download5）
+2. 通过python3安装sip ---> pip3 install SIP
+3. 通过python3安装pyqt ---> pip3 install PyQt5
+
+安装eric6 ide（http://eric-ide.python-projects.org/eric-download.html）
+|
+4. 安装qt5  --->很大，最好用离线包下载。在线安装一直失败 (https://www.qt.io/download-open-source/?hsCtaTracking=f977210e-de67-475f-a32b-65cec207fd03%7Cd62710cd-e1db-46aa-8d4d-2f1c1ffdacea&__hstc=152220518.7b39048842842a79bbe29189878c3a20.1488563803802.1488601509713.1488636446394.3&__hssc=152220518.1.1488636446394&__hsfp=676639863)
+
+5. 安装eric6依赖库 -> pip install qscintilla  (文档说安装了sip, pyqt, QScintilla, 是不是步骤2和步骤3可以省掉??)
+6. 安装eric6源码 --->解压包,进入目录 sudo python3 install.py --下载地址(http://eric-ide.python-projects.org/eric-download.html)
+7. 查看文档进入开发 ---> https://wiki.python.org/moin/PyQt
+
+
