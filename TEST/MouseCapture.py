@@ -9,7 +9,7 @@ used to test the mouse and key capture.
 
 import sys
 from PyQt5 import QtWidgets, QtCore
-
+from pymouse import PyMouseEvent
 
 class Window(QtWidgets.QMainWindow):
     def __init__(self):
@@ -58,8 +58,23 @@ class Window(QtWidgets.QMainWindow):
             self.statusBar().showMessage(self.tr("Mouse Right Button Pressed:"))
 
 
+class MyMouseEvent(PyMouseEvent):
+    def __init__(self):
+        PyMouseEvent.__init__(self)
+
+    def click(self, x, y, button, press):
+        print(button)
+
+    def move(self, x, y):
+        print(str(x) + "--" + str(y))
+
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
+
+    a = MyMouseEvent()
     window = Window()
     window.show()
+    a.start()
+
+    print("sssss")
     sys.exit(app.exec_())
