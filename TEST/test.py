@@ -1,4 +1,6 @@
-# coding=utf-8
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 import re
 import subprocess
 import sys
@@ -37,21 +39,21 @@ def timeit(func):
         func(*args, **kwargs)
         end = time.time()
 
-        print '[%s] Time spent %.2f seconds.' % (func.__name__, end - start)
+        print ('[%s] Time spent %.2f seconds.' % (func.__name__, end - start))
     return do
 
 
 @sleep_later()
 def open_app_detail(package):
-    print 'Open application detail setting: %s' % package
+    print ('Open application detail setting: %s' % package)
     # adb shell am start -a ACTION -d DATA
     run('shell am start -p %s' % package)
 
 
 def dump_layout():
-    print 'Dump window layouts'
+    print ('Dump window layouts')
     # adb shell uiautomator dump <FILE>
-    print run('shell uiautomator dump --compressed')
+    print (run('shell uiautomator dump --compressed'))
 
 
 def parse_bounds(text):
@@ -82,29 +84,29 @@ def click_with_keyword(keyword, dump=True, **kwargs):
 
     if (bounds):
         point = point_in_bounds(bounds)
-        print 'Click "%s" (%d, %d)' % (keyword, point[0], point[1])
+        print ('Click "%s" (%d, %d)' % (keyword, point[0], point[1]))
         # adb shell input tap <x> <y>
         run('shell input tap %d %d' % point)
     else:
-        print 'Can not find keyword "%s"' % keyword
+        print ('Can not find keyword "%s"' % keyword)
 
 @sleep_later
 def force_stop(package):
-    print 'Force stop %s' % package
+    print ('Force stop %s' % package)
     # adb shell am force-stop <package>
     run('shell am force-stop %s' % package)
 
 
 @sleep_later(0.5)
 def start_activity(activity):
-    print 'Start activity %s' % activity
+    print ('Start activity %s' % activity)
     # adb shell am start -n <activity>
     run('shell am start -n %s' % activity)
 
 
 @sleep_later(0.5)
 def clear_data(package):
-    print 'Clear app data: %s' % package
+    print ('Clear app data: %s' % package)
     # adb shell pm clear <package>
     run('shell pm clear %s' % package)
 

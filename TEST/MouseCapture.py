@@ -42,8 +42,12 @@ class Window(QtWidgets.QMainWindow):
                   (screen.height() - size.height()) / 2)
 
     def keyPressEvent(self, e):
+        print("pressed: " +e.text())
         self.label.setText(e.text())
         self.statusBar().showMessage(e.text())
+
+    def keyReleaseEvent(self, e):
+        print("released:" + e.text())
 
     def mouseMoveEvent(self, e):
         self.label.setText("("+str(e.x())+","+str(e.y())+")")
